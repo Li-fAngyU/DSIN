@@ -96,5 +96,6 @@ if __name__ == "__main__":
                     break
         if best_test_auc >=0.63:
             break
+    print()
     print(f'After {i} epochs, best_test_auc: {best_test_auc}, log_loss:{loss}, train_auc:{auc_metric.accumulate()}')
     print(f'training start at {start_time} finish at {time.asctime()}')

@@ -54,5 +54,5 @@ user,time_stamp,btag,cate,brand
 ```
 
 ## 预处理数据集介绍
-对原始数据集中的四个文件，参考[原论文的数据预处理过程](https://github.com/shenweichen/DSIN/tree/master/code)进行处理，形成满足DSIN论文条件且可以被reader直接读取的数据集。
+对原始数据集中的四个文件，参考[原论文的数据预处理过程](https://github.com/shenweichen/DSIN/tree/master/code)对数据进行处理，形成满足DSIN论文条件且可以被reader直接读取的数据集。
 数据集共有八个pkl文件，训练集和测试集各自拥有四个，以训练集为例，这四个文件为train_feat_input.pkl、train_sess_input、train_sess_length和train_label.pkl。各自存储了按0.25的采样比进行采样后的user及item特征输入，用户会话特征输入、用户会话长度和标签数据。

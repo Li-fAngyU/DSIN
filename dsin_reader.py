@@ -25,13 +25,13 @@ sparse_features = ['userid', 'adgroup_id', 'pid', 'cms_segid', 'cms_group_id', '
 dense_features = ['price']
 
 class RecDataset(IterableDataset):
-    def __init__(self, file_list, config):
+    def __init__(self, data_dir, mode='train'):
         super().__init__()
-        self.file_list = file_list
-        feat_input = pd.read_pickle(self.file_list[0])
-        self.sess_input = pd.read_pickle(self.file_list[3])
-        self.sess_length = pd.read_pickle(self.file_list[2])
-        self.label = pd.read_pickle(self.file_list[1]).to_numpy().astype('float32')
+        assert(mode == 'train' or mode == 'test'), f"mode must be 'train' or 'test'. but get '{mode}'"
+        feat_input = pd.read_pickle(data_dir + mode + '_feat_input.pkl')
+        self.sess_input = pd.read_pickle(data_dir + mode + '_sess_input.pkl')
+        self.sess_length = pd.read_pickle(data_dir + mode + '_session_length.pkl')
+        self.label = pd.read_pickle(data_dir + mode + '_label.pkl').to_numpy().astype('float32')
         self.num_samples = self.label.shape[0]
         self.sparse_input = feat_input[sparse_features].to_numpy().astype('int64')
         self.dense_input = feat_input[dense_features].to_numpy().reshape(-1)

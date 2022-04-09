@@ -13,7 +13,7 @@
 # limitations under the License.
 
 runner:
-  train_data_dir: "../../../datasets/Ali_Display_Ad_Click/big_data"
+  train_data_dir: "Ali_Display_Ad_Click_DSIN/big_train/"
   train_reader_path: "dsin_reader" # importlib format
   use_gpu: False
   use_auc: True
@@ -22,7 +22,7 @@ runner:
   print_interval: 100
 
   model_save_path: "output_model_all_dsin"
-  test_data_dir: "../../../datasets/Ali_Display_Ad_Click/big_data"
+  test_data_dir: "Ali_Display_Ad_Click_DSIN/big_test/"
   infer_reader_path: "dsin_reader" # importlib format
   infer_batch_size: 16384 # 2**14
   infer_load_path: "output_model_dsin"
